@@ -41,7 +41,12 @@ Berikut Penjelasan kolom pada dataset.
 | 9 | medianHouseValue | Median harga rumah rata-rata untuk rumah tangga dalam satu blok (diukur dalam Dolar AS) |
 | 10 | oceanProximity | Jarak rumah ke pesisir pantai atau laut |
 
+## 2. EDA
+Dilakukan pada kolom numerikal & kategorikal.
+
 # Data Preprocessing
+
+
 
 # Machine Learning Modelling
 Dibuat 2 model machine learning & di tuning parameter nya.
@@ -51,6 +56,22 @@ Dibuat 2 model machine learning & di tuning parameter nya.
 ## Random Forest
 
 # Conclusion & Recommendation
+
+## 1. Conclusion
+Berdasarkan hasil pemodelan terbaik (**XGBoost**):
+* Dari 7 model yang dibuat & 2 model yang di tuning, model **XGBoost** memiliki performa yang paling baik pada dataset ini dengan nilai MAE 26.330 & MAPE 15,72%. Jika dilihat dari nilai MAPE nya yaitu 15.72% untuk **XGBoost**, model ini termasuk **Good Forecast** menurut sumber dari [researchgate](https://www.researchgate.net/figure/Interpretation-of-MAPE-Results-for-Forecasting-Accuracy_tbl2_276417263).
+* `ocean_proximity` dan `median_income` merupakan fitur yang korelasinya paling tinggi  dan paling penting dalam pemodelan ini, yang pengaruhnya paling besar terhadap nilai prediksi `median_house_value`.
+* Model ini memiliki limitasi yaitu hanya bisa memprediksi model yang memiliki `median_house_value` pada rentang 14.999 hingga 433.800. Model XGBoost ini merupakan tree based model yang bukan merupakan model extrapolation. Sehingga model ini tidak bisa memprediksi value diluar rentang nilai datanya. Model ini juga masih belum bekerja dengan optimal pada `median_house_value` lebih dari 332.970.
+
+## 2. Recommendation
+* Untuk Developer Perumahan (Bisnis):
+  * Untuk memaksimalkan keuntungan, perlu disesuaikan tempat rumah tersebut dibangun. Serta memperhatikan pendapatan orang-orang pada warga sekitar daerah tersebut (Bisa dilihat dari pendapatan perkapita).
+* Untuk Model Machine Learning:
+  * Bisa dilakukan optimasi menggunakan **GridSearch**. Kemudian hyperparameter tuning optimization nya bisa menggunakan **Optuna** untuk meningkatkan performa model.
+  * Evaluasi fitur perlu dilakukan dengan cara yang lebih advance, misal dengan menerapkan **iterative-feature-selection**.
+* Untuk dataset:
+  * Melihat hanya sedikit fitur yang berkorelasi tinggi dengan target pada dataset ini, perlu ditambahkan fitur pendukung lain seperti **luas tanah**, **luas bangunan**, **parkiran mobil/garasi**, **kolam renang**, dan **jarak rumah ke fasilitas umum (rumah sakit, bandara, stasiun, mall, dll)**.
+  * Untuk analisis yang terbaru, perlu dilakukan **update harga rumah** dikarenakan data yang terdapat pada dataset sudah cukup lama (Tahun 1990) yang pastinya sudah terdampak inflasi.
 
 # Save Model
 Simpan model yang telah di tuning menggunakan pickle.
