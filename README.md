@@ -3,7 +3,7 @@ Capstone Project Module 3 - Noor Kharismawan Akbar
 
 # A. Business Problem Understanding
 
-## 1. Context
+## 1. Background
 Tempat tinggal merupakan kebutuhan pokok setiap manusia. Namun, tidak semua orang memiliki pengetahuan tentang harga rumah yang sesuai dengan fasilitas yang tersedia. Di setiap negara cukup sulit untuk orang awam mengetahui harga rumah yang sesuai dengan berbagai aspek pendukung lain-nya. Begitupun pula di daerah California, sebuah negara bagian di Amerika Serikat yang terletak bagian Barat, yang memiliki 58 counties & 482 municipalities menurut [wikipedia](https://simple.wikipedia.org/wiki/List_of_cities_and_towns_in_California).
 
 ## 2. Problem Statement
@@ -53,9 +53,9 @@ Terdapat pada kolom total_bedrooms:
 
 ## 2. Data Abnormal, Outlier, Lack -> Listwise Deletion
 Terdapat pada kolom:
-* housing_median_age
-* median_house_value
-* ocean_proximity
+* `housing_median_age`
+* `median_house_value`
+* `ocean_proximity`
 
 ## 3. Data Correlation
 * Menambah kolom:
