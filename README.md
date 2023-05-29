@@ -57,13 +57,14 @@ Terdapat pada kolom:
 * `median_house_value`
 * `ocean_proximity`
 
-## 3. Data Correlation
+## 3. Data Correlation & Feature Importances
+Dilihat dari korelasinya terhadap target & nilai feature importances, akan ada beberapa kolom yang ditambah dan dihapus:
 * Menambah kolom:
- * `bedrooms_per_room`
- * `population_per_household`
+  * `bedrooms_per_room`
+  * `population_per_household`
 * Menghapus kolom:
- * `total_bedrooms`
- * `population`
+  * `total_bedrooms`
+  * `population`
 
 # D. Machine Learning Modelling
 Dibuat 2 model machine learning & di tuning parameter nya.
@@ -71,8 +72,8 @@ Dibuat 2 model machine learning & di tuning parameter nya.
 ## 1. Data Splitting & Scaling
 * Splitting: 70:30
 * Scaling:
- * One Hot Encoder: kolom fitur kategorikal
- * PowerTransformer: kolom fitur numerikal
+  * One Hot Encoder: kolom fitur kategorikal
+  * PowerTransformer: kolom fitur numerikal
 
 ## 2. Model Selection
 Berdasarkan benchmark & prediksi pada test set, dipilih 2 model terbaik yang akan di tuning, yaitu **XGBoost** & **Random Forest**.
