@@ -8,6 +8,11 @@ Capstone Project Module 3 - Noor Kharismawan Akbar
 # Data Preprocessing
 
 # Machine Learning Modelling
+Dibuat 2 model machine learning & di tuning parameter nya.
+
+## XGBoost
+
+## Random Forest
 
 # Conclusion & Recommendation
 
