@@ -18,24 +18,28 @@ Tujuan dari pemodelan ini:
 Melihat problem yang ada, kita akan membangun **model machine learning** yang akan menjadi alat untuk memprediksi harga jual rumah, yang mana akan berguna untuk developer dalam menentukan lokasi serta harga rumah di suatu kawasan tertentu.
 
 ## 5. Modelling
-Menggunakan model **Supervised Machine Learning (Regression)**:
-1. Linear Regression
-2. KNN
-3. Decision Tree
-4. Random Forest
-5. XGBoost
-6. AdaBoost
-7. Gradient Boosting
+Menggunakan model **Supervised Machine Learning (Regression)**, antara lain: Linear Regression, KNN, Decision Tree, Random Forest, XGBoost, AdaBoost, dan Gradient Boosting.
 
 ## 6. Evaluation Metric
-Untuk model regresi, terdapat berbagai metriks evaluasi yang dapat digunakan:
-1. RMSE
-2. MAE
-3. RMSLE
-4. MAPE
-5. R-square
+Untuk model regresi, terdapat berbagai metriks evaluasi yang dapat digunakan, antara lain: RMSE, MAE, RMSLE, MAPE, dan R-square.
 
 # Data Understanding
+
+## 1. Column Description
+Berikut Penjelasan kolom pada dataset.
+
+| No | Nama Kolom | Deskripsi & Penjelasan Kolom |
+| -- | -- | -- |
+| 1 | longitude | Ukuran seberapa jauh barat sebuah rumah; nilai yang lebih besar lebih jauh ke barat ([Garis Bujur](https://id.wikipedia.org/wiki/Garis_bujur)) |
+| 2 | latitude | Ukuran seberapa jauh utara sebuah rumah; nilai yang lebih besar lebih jauh ke utara ([Garis Lintang](https://id.wikipedia.org/wiki/Garis_lintang)) |
+| 3 | housingMedianAge | Usia rata-rata sebuah rumah dalam satu blok; angka yang lebih rendah adalah bangunan yang lebih baru |
+| 4 | totalRooms | Jumlah total ruangan dalam satu blok |
+| 5 | totalBedrooms | Jumlah total kamar tidur dalam satu blok |
+| 6 | population | Jumlah total orang yang tinggal dalam satu blok |
+| 7 | households | Jumlah total rumah tangga (Jumlah kepala dalam satu [Kartu Keluarga](https://id.wikipedia.org/wiki/Kartu_Keluarga)), sekelompok orang yang tinggal di dalam satu unit rumah, untuk satu blok |
+| 8 | medianIncome | Median pendapatan untuk rumah tangga dalam satu blok rumah (diukur dalam puluhan ribu Dolar AS)| |
+| 9 | medianHouseValue | Median harga rumah rata-rata untuk rumah tangga dalam satu blok (diukur dalam Dolar AS) |
+| 10 | oceanProximity | Jarak rumah ke pesisir pantai atau laut |
 
 # Data Preprocessing
 
