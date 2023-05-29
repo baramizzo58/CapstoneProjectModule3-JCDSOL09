@@ -23,7 +23,7 @@ Menggunakan model **Supervised Machine Learning (Regression)**, antara lain: Lin
 ## 6. Evaluation Metric
 Untuk model regresi, terdapat berbagai metriks evaluasi yang dapat digunakan, antara lain: RMSE, MAE, RMSLE, MAPE, dan R-square.
 
-# Data Understanding
+# B. Data Understanding
 
 ## 1. Column Description
 Berikut Penjelasan kolom pada dataset.
@@ -44,11 +44,18 @@ Berikut Penjelasan kolom pada dataset.
 ## 2. EDA
 Dilakukan pada kolom numerikal & kategorikal.
 
-# Data Preprocessing
+# C. Data Preprocessing
 
-## 1. Missing Value
+## 1. Missing Value -> Listwise Deletion
+Terdapat pada kolom total_bedrooms:
+* Termasuk kategori MCAR
+* Persentase hanya 0.95%
 
-## 2. Data Abnormal, Outlier, Lack
+## 2. Data Abnormal, Outlier, Lack -> Listwise Deletion
+Terdapat pada kolom:
+* housing_median_age
+* median_house_value
+* ocean_proximity
 
 ## 3. Data Correlation
 * Menambah kolom:
@@ -57,14 +64,50 @@ Dilakukan pada kolom numerikal & kategorikal.
 * Menghapus kolom:
  * `total_bedrooms`
  * `population`
-# Machine Learning Modelling
+
+# D. Machine Learning Modelling
 Dibuat 2 model machine learning & di tuning parameter nya.
 
-## XGBoost
+## 1. Data Splitting & Scaling
+* Splitting: 70:30
+* Scaling:
+ * One Hot Encoder: kolom fitur kategorikal
+ * PowerTransformer: kolom fitur numerikal
 
-## Random Forest
+## 2. Model Selection
+Berdasarkan benchmark & prediksi pada test set, dipilih 2 model terbaik yang akan di tuning, yaitu **XGBoost** & **Random Forest**.
 
-# Conclusion & Recommendation
+## 3. Tuning Model
+Berikut Perbandingan Hyperparameter XGBoost sebelum & setelah tuning:
+| Nama Kolom | Default | Tuning Range | Best Params |
+| -- | -- | -- | -- |
+| max_depth | 6 | 1 - 10 | 7 |
+| learning_rate | 0,3 | 0,01 - 0,10 | 0,07 |
+| n_estimators | 100 | 100 - 200 | 197 |
+| subsample | 1 | 0,2 - 1 | 0,9 |
+| gamma | 0 | 1 - 10 | 9 |
+| colsample_bytree | 1 | 0,1 - 1 | 0,7 |
+| reg_alpha | 1 | logspace (-3,1,10) | 0,01 |
+| reg_lambda | 1 | logspace (-3,1,10) | 1,29 |
+
+Berikut Perbandingan Hyperparameter Random Forest sebelum & setelah tuning:
+| Nama Kolom | Default | Tuning Range | Best Params |
+| -- | -- | -- | -- |
+| criterion | squared_error | squared_error, absolute_error, poisson | absolute_error|
+| max_features | 1 | 2 - 11 | 8 |
+| n_estimators | 100 | 100 - 199 | 146 |
+| min_samples_split | 2 | 2 - 10 | 9 |
+| min_samples_leaf | 1 | 1 - 20 | 5 |
+
+## 4. Perbandingan Score (MAE|MAPE)
+* XGBoost
+ * Sebelum Tuning: 27.033 | 0.1636
+ * Setelah Tuning: 26.330 | 0.1572
+* Random Forest
+ * Sebelum Tuning: 30.963 | 0.1887
+ * Setelah Tuning: 30.573 | 0.1809
+
+# E. Conclusion & Recommendation
 
 ## 1. Conclusion
 Berdasarkan hasil pemodelan terbaik (**XGBoost**):
@@ -82,5 +125,5 @@ Berdasarkan hasil pemodelan terbaik (**XGBoost**):
   * Melihat hanya sedikit fitur yang berkorelasi tinggi dengan target pada dataset ini, perlu ditambahkan fitur pendukung lain seperti **luas tanah**, **luas bangunan**, **parkiran mobil/garasi**, **kolam renang**, dan **jarak rumah ke fasilitas umum (rumah sakit, bandara, stasiun, mall, dll)**.
   * Untuk analisis yang terbaru, perlu dilakukan **update harga rumah** dikarenakan data yang terdapat pada dataset sudah cukup lama (Tahun 1990) yang pastinya sudah terdampak inflasi.
 
-# Save Model
+# F. Save Model
 Simpan model yang telah di tuning menggunakan pickle.
